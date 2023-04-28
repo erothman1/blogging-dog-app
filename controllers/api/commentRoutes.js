@@ -7,3 +7,5 @@ const withAuth = require('../../utils/auth')
 //Put request to update existing comment
 
 //Delete request to delete existing comment 
+
+module.exports = router

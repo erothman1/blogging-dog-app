@@ -12,3 +12,4 @@ const { User, Post, Comment } = require('../models')
 
 //Get request to render login page
 
+module.exports = router

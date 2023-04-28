@@ -7,3 +7,5 @@ const withAuth = require('../../utils/auth')
 //Put request to update existing blog post
 
 //Delete request to destroy existing blog post 
+
+module.exports = router
