@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Comment, User, Post } = require('../../models')
-//require middleware for routes that need login 
+const withAuth = require('../../utils/auth')
 
 //Post request to create a new user
  
