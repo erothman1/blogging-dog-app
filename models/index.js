@@ -25,3 +25,9 @@ Post.hasMany(Comment, {
 
 //comment belongs to post
 Comment.belongsTo(Post)
+
+module.exports = {
+    User,
+    Post, 
+    Comment
+}
