@@ -1,18 +1,38 @@
 {{!-- Show single blogpost with title, content, creator username, date created, and existing comments --}}
 {{!-- existing comments show content, creator username, and date created --}}
-{{!-- have option to leave a comment  --}}
+{{!-- have option to leave a comment --}}
 {{log this}}
-<h1>{{title}}, Posted by @{{user.username}} on {{formatDate createdAt}}</h1>
-<h2>{{content}}</h2>
+
+<div class="card">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="title is-4">{{title}}</p>
+      <p class="subtitle is-6">Posted by @{{user.username}} {{formatDate createdAt}}</p>
+    </div>
+  </div>
+  <div class="content">{{content}}</div>
+</div>
+</div>
 
 {{#if comments.length}}
-  <h3>Comments:</h3>
-  {{#each comments}}
-    <div>
-      <p>{{this.content}}</p>
-      <p>Posted by {{this.user.username}} on {{formatDate this.createdAt}}</p>
+<h3 style="text-align: center; font-size: 30px;">Comments:</h3>
+{{#each comments}}
+<div class="card">
+  <div class="card-content">
+    <div class="media-content">
+      <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}
+      </p>
     </div>
-  {{/each}}
+  </div>
+  <div class="content">{{this.content}}</div>
+</div>
+</div>
+
+{{/each}}
 {{else}}
-  <p>No comments yet.</p>
+<p style="text-align: center; font-size: 30px;">No comments yet.</p>
 {{/if}}
+
+<div class="center">
+  <button class="button"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+</div>
