@@ -22,3 +22,7 @@ nav a {
     font-size: 30px;
     padding: 1rem !important;
 }
+
+.card {
+    background-color: rgb(194, 197, 216);
+}

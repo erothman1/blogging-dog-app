@@ -1,5 +1,15 @@
 {{!-- Show all posts with blog title, date created, and user who wrote post on this page --}}
 {{log this}}
-{{#each posts as |post|}}
-<div>{{title}}, Posted by @{{user.username}} on {{formatDate createdAt}}</div>
-{{/each}}
+
+<div class="card">
+    {{#each posts as |post|}}
+  <div class="card-content">
+    <p class="title">
+      {{title}}
+    </p>
+    <p class="subtitle">
+      Posted by @{{user.username}} on {{formatDate createdAt}}
+    </p>
+  </div>
+  {{/each}}
+</div>
