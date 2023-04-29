@@ -1,2 +1,14 @@
 {{!-- Show blogposts created by logged in user --}}
 {{!-- Have option to add a new blogpost --}}
+
+{{log this}}
+
+{{#if posts.length}}
+  {{#each posts}}
+    <ul>
+        <li>{{this.title}} {{formatDate this.createdAt}}</li>
+    </ul>
+  {{/each}}
+{{else}}
+  <p>No posts yet.</p>
+{{/if}}

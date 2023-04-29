@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
 //Get request to get single post joined with user data and comment data, rendered on blogPost page
 //need middleware to require login before accessing this page
-router.get('/blog/:id', async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -47,7 +47,7 @@ router.get('/blog/:id', async (req, res) => {
 
         res.render('blogPost', {
             ...post,
-            logged_in: req.session.logged_in
+            logged_in: req.session.loggedIn
         })
 
     } catch (err) {
@@ -57,6 +57,24 @@ router.get('/blog/:id', async (req, res) => {
 
 // Get request to get single (logged in) user joined with their post data
 //need middleware to require login before accessing this page
+router.get('/dashboard/:id', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.params.id, {
+            include: [
+                { model: Post }
+            ]
+        })
+
+        const user = userData.get({ plain: true })
+
+        res.render('dashboard', {
+            ...user, 
+            logged_in: req.session.loggedIn
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 //Get request to render login page
 
