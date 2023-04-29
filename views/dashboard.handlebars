@@ -2,22 +2,21 @@
 {{!-- Have option to add a new blogpost --}}
 
 {{log this}}
-<a href="./blogPost.handlebars">
+{{#if posts.length}}
+{{#each posts}}
+<a href="/blog/{{id}}">
   <div class="card">
-    {{#if posts.length}}
-    {{#each posts}}
     <div class="card-content">
       <p class="title">
         {{this.title}}, posted on {{formatDate this.createdAt}}
       </p>
     </div>
-    {{/each}}
-    {{else}}
-    <p style="text-align: center">No posts yet.</p>
-    {{/if}}
   </div>
 </a>
-
+{{/each}}
+{{else}}
+<p style="text-align: center">No posts yet.</p>
+{{/if}}
 <div class="center">
   <button class="button"><i class="fa-solid fa-user-plus"></i>New Blog Post</button>
 </div>
