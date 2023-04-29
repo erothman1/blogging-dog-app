@@ -3,12 +3,20 @@
 
 {{log this}}
 
-{{#if posts.length}}
+<div class="card">
+  {{#if posts.length}}
   {{#each posts}}
-    <ul>
-        <li>{{this.title}} {{formatDate this.createdAt}}</li>
-    </ul>
+    <div class="card-content">
+      <p class="title">
+        {{this.title}}, posted on {{formatDate this.createdAt}}
+      </p>
+    </div>
   {{/each}}
-{{else}}
-  <p>No posts yet.</p>
-{{/if}}
+  {{else}}
+    <p>No posts yet.</p>
+  {{/if}}
+</div>
+
+<div class="center">
+  <button class="button"><i class="fa-solid fa-user-plus"></i>  Blog Post</button>
+</div>

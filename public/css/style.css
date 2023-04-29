@@ -24,5 +24,16 @@ nav a {
 }
 
 .card {
+    margin: 2rem;
     background-color: rgb(194, 197, 216);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: rgb(173, 182, 230);
+    margin: 2rem;
 }
