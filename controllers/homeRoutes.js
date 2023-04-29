@@ -46,10 +46,12 @@ async (req, res) => {
             ],
         })
         const post = postData.get({ plain: true })
+        const postId = postData.id
 
         res.render('blogPost', {
             ...post,
-            logged_in: req.session.loggedIn
+            logged_in: req.session.loggedIn,
+            postId: req.params.id
         })
 
     } catch (err) {
