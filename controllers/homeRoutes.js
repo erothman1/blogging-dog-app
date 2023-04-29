@@ -32,7 +32,14 @@ router.get('/blog/:id', async (req, res) => {
         const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    model: User, Comment
+                    model: User,
+                },
+                {
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    },
                 },
             ],
         })
@@ -41,7 +48,7 @@ router.get('/blog/:id', async (req, res) => {
         res.render('blogPost', {
             ...post,
             logged_in: req.session.logged_in
-          })
+        })
 
     } catch (err) {
         res.status(500).json(err)
