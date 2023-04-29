@@ -57,7 +57,7 @@ router.get('/blog/:id', withAuth, async (req, res) => {
 
 // Get request to get single (logged in) user joined with their post data
 //need middleware to require login before accessing this page
-router.get('/dashboard/:id', async (req, res) => {
+router.get('/dashboard/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             include: [
@@ -77,5 +77,14 @@ router.get('/dashboard/:id', async (req, res) => {
 })
 
 //Get request to render login page
+router.get('/login', (req, res) => {
+    // Redirects user to dashboard if already logged in
+    if (req.session.logged_in) {
+      res.redirect('/dashboard')
+      return
+    }
+  
+    res.render('login')
+  })
 
 module.exports = router
