@@ -1,2 +1,77 @@
 {{!-- have sign up or sign in option --}}
 {{!-- created username or password prompt --}}
+
+<div class="center">
+    <button class="button" id="login"><i class="fa-solid fa-check"></i> Login</button>
+    <button class="button" id="signup"><i class="fa-solid fa-check"></i> Signup</button>
+</div>
+
+<div class="container is-one-third" id="loginForm" style="display: none">
+    <h1 style="text-align:center; font-size:30px; padding:1rem;">Login</h1>
+    <form style="margin:2rem">
+
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="password">
+                <span class="icon is-small is-left">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+            </div>
+        </div>
+        <div class="center">
+            <button class="button"><i class="fa-solid fa-check"></i>Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="container is-one-third" id="signupForm" style="display:none">
+    <h1 style="text-align:center; font-size:30px; padding:1rem;">Sign Up</h1>
+    <form style="margin:2rem">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="text">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="email">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" type="password">
+                <span class="icon is-small is-left">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="center">
+            <button class="button"><i class="fa-solid fa-check"></i>Submit</button>
+        </div>
+
+    </form>
+</div>
