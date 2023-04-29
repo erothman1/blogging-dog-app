@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Comment, User, Post } = require('../../models')
+const { User } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 //Post request to create a new user
@@ -13,6 +13,8 @@ router.post('/', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true
+
+            req.session.username = req.body.username
 
             res.status(200).json(userData)
         })
@@ -45,6 +47,8 @@ router.post('/login', async (req, res) => {
 
         req.session.save(() => {
             req.session.loggedIn = true
+
+            req.session.username = req.body.username
 
             res.status(200).json({ user: userData, message: 'You are now logged in!' })
         })
