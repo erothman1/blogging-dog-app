@@ -26,13 +26,30 @@ router.post('/', withAuth, async (req, res) => {
         })
 
         res.status(200).json(newComment)
-        
+
     } catch (err) {
         res.status(400).json(err)
     }
 })
 
 //Put request to update existing comment
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const updatedComment = await Comment.update(
+            {
+                content: req.body.content
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }
+        )
+        res.status(200).json(updatedComment)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+})
 
 //Delete request to delete existing comment 
 
