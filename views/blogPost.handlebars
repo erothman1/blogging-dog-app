@@ -13,11 +13,13 @@
   <div class="content">{{content}}</div>
 </div>
 </div>
-
+{{log comments}}
 {{#if comments.length}}
 <h3 style="text-align: center; font-size: 30px;">Comments:</h3>
 {{#each comments}}
-<div class="card">
+<div id="comments-container">
+
+  <div class="card">
   <div class="card-content">
     <div class="media-content">
       <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}
@@ -28,11 +30,32 @@
 </div>
 </div>
 
+</div>
+
+
 {{/each}}
 {{else}}
 <p style="text-align: center; font-size: 30px;">No comments yet.</p>
 {{/if}}
 
 <div class="center">
-  <button class="button"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
+  <button class="button" id="add-comment-button"><i class="fa-solid fa-user-plus"></i>Add a comment</button>
 </div>
+
+<div id="commentBlock" style="display:none">
+  <div class="container is-one-third" id="commentForm" style="padding:2rem;">
+  <form>
+    <div class="field">
+      <label class="label">Comment</label>
+      <div class="control has-icons-left has-icons-right">
+        <input class="input is-normal" id="comment-input" type="text">
+      </div>
+    </div>
+  </form>
+</div>
+<div class="center">
+  <button class="button" id="create-button"><i class="fa-solid fa-circle-plus"></i></button>
+</div>
+</div>
+
+<script src="/js/addComment.js"></script>
