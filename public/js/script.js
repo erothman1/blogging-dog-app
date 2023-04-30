@@ -45,25 +45,41 @@ document.getElementById("loginSubmit").addEventListener("click", loginFormHandle
 
 //Signup request
 const signupFormHandler = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
   
-    const username = document.getElementById('username-signup').value.trim();
-    const email = document.getElementById('email-signup').value.trim();
-    const password = document.getElementById('password-signup').value.trim();
+    const username = document.getElementById('username-signup').value.trim()
+    const email = document.getElementById('email-signup').value.trim()
+    const password = document.getElementById('password-signup').value.trim()
   
     if (username && email && password) {
       const response = await fetch('/api/user', {
         method: 'POST',
         body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
-      });
+      })
   
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/')
       } else {
-        alert('Failed to sign up.');
+        alert('Failed to sign up.')
       }
     }
-  };
+  }
 
-  document.getElementById("signup-submit").addEventListener("click", signupFormHandler)
+document.getElementById("signup-submit").addEventListener("click", signupFormHandler)
+
+//Logout
+const logout = async () => {
+    const response = await fetch('/api/user/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
+  
+    if (response.ok) {
+      document.location.replace('/')
+    } else {
+      alert('Failed to log out.')
+    }
+  }
+  
+document.getElementById('logout').addEventListener('click', logout)
