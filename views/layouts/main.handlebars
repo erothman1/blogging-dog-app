@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    {{log this}}
+    {{log userId}}
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-start">
@@ -17,7 +19,7 @@
             </div>
             <div class="navbar-end">
                 <a href="/" class="navbar-item">Home</a>
-                <a href="/dashboard/{{id}}" class="navbar-item">Dashboard</a>
+                <a href="/dashboard/{{userId}}" class="navbar-item">Dashboard</a>
                 {{#if loggedIn}}
                 {{!-- logout button not coming up when logged in --}}
                 <button class="navbar-item" id="logout">Logout</button>

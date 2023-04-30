@@ -7,12 +7,12 @@ const newPostHandler = async (event) => {
     if (title && content) {
         const response = await fetch("/api/blog", {
             method: Post,
-            body: JSON.stringify({ title, content}),
+            body: JSON.stringify({ title, content }),
             headers: { "Content-Type": "application/json" }
         })
 
-        const userData = await fetch("/api/user")
-        const userId = userData.id
+        // const userData = await fetch("/api/user")
+        // const userId = userData.id
 
         if (response.ok) {
             document.location.replace(`/dashboard/${userId}`)
@@ -21,3 +21,5 @@ const newPostHandler = async (event) => {
         }
     }
 }
+
+document.getElementById("create-button").addEventListener("click", newPostHandler)

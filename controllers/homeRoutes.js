@@ -18,7 +18,8 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            userId: req.session.userId
         })
     } catch (err) {
         res.status(500).json(err)
@@ -27,9 +28,7 @@ router.get('/', async (req, res) => {
 
 //Get request to get single post joined with user data and comment data, rendered on blogPost page
 //need middleware to require login before accessing this page
-router.get('/blog/:id', 
-//withAuth, 
-async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -61,9 +60,7 @@ async (req, res) => {
 
 // Get request to get single (logged in) user joined with their post data
 //need middleware to require login before accessing this page
-router.get('/dashboard/:id', 
-//withAuth, 
-async (req, res) => {
+router.get('/dashboard/:id', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
             include: [
@@ -75,7 +72,8 @@ async (req, res) => {
 
         res.render('dashboard', {
             ...user, 
-            logged_in: req.session.loggedIn
+            logged_in: req.session.loggedIn,
+            userId: req.session.userId
         })
     } catch (err) {
         res.status(500).json(err)
