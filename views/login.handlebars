@@ -9,11 +9,20 @@
 <div class="container is-one-third" id="loginForm" style="display: none">
     <h1 style="text-align:center; font-size:30px; padding:1rem;">Login</h1>
     <form style="margin:2rem">
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input" id="username-login" type="text">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </div>
+        </div>
 
         <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email">
+                <input class="input" id="email-login" type="email">
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -23,14 +32,14 @@
         <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input" type="password">
+                <input class="input" id="password-login" type="password">
                 <span class="icon is-small is-left">
                     <i class="fa-solid fa-lock"></i>
                 </span>
             </div>
         </div>
         <div class="center">
-            <button class="button"><i class="fa-solid fa-check"></i>Submit</button>
+            <button class="button" id="loginSubmit"><i class="fa-solid fa-check"></i>Submit</button>
         </div>
 
     </form>
