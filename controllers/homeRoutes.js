@@ -60,9 +60,9 @@ router.get('/blog/:id', withAuth, async (req, res) => {
 
 // Get request to get single (logged in) user joined with their post data
 //need middleware to require login before accessing this page
-router.get('/dashboard/:id', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userData = await User.findByPk(req.params.id, {
+        const userData = await User.findByPk(req.session.userId, {
             include: [
                 { model: Post }
             ]

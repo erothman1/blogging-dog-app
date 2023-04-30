@@ -6,7 +6,7 @@ const newPostHandler = async (event) => {
 
     if (title && content) {
         const response = await fetch("/api/blog", {
-            method: Post,
+            method: POST,
             body: JSON.stringify({ title, content }),
             headers: { "Content-Type": "application/json" }
         })
@@ -15,7 +15,8 @@ const newPostHandler = async (event) => {
         // const userId = userData.id
 
         if (response.ok) {
-            document.location.replace(`/dashboard/${userId}`)
+            document.location.replace("/dashboard")
+            console.log(userId)
         } else {
             alert("Failed to create new blog post")
         }
