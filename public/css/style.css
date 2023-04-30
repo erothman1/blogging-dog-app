@@ -23,6 +23,18 @@ nav a {
     padding: 1rem !important;
 }
 
+nav button {
+    font-size: 30px;
+    background-color: rgb(173, 182, 230);
+    cursor: grab;
+    border-color:rgb(173, 182, 230) !important;
+}
+
+nav button:hover {
+    background-color: white;
+    color: rgb(72, 95, 196);
+}
+
 .card {
     margin: 2rem;
     background-color: rgb(194, 197, 216);
