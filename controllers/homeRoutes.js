@@ -93,4 +93,14 @@ router.get('/login', (req, res) => {
     res.render('login')
   })
 
+router.get('/newpost', (req, res) => {
+    try {
+        res.render('newPostForm', {
+            logged_in: req.session.loggedIn
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
