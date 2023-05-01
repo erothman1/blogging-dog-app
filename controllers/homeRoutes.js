@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 
         res.render('homepage', {
             posts,
-            loggedIn: req.session.loggedIn,
+            logged_in: req.session.loggedIn,
             userId: req.session.userId
         })
     } catch (err) {
@@ -50,7 +50,8 @@ router.get('/blog/:id', withAuth, async (req, res) => {
         res.render('blogPost', {
             ...post,
             logged_in: req.session.loggedIn,
-            postId: req.params.id
+            postId: req.params.id,
+            userId: req.session.userId
         })
 
     } catch (err) {
