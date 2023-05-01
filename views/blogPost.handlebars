@@ -33,6 +33,8 @@
   </form>
 </div>
 
+{{!-- if logged in user id is equal to user id that created blog post, then show the update and delete button --}}
+{{!-- {{#if compareId userId user.id}} --}}
 <div class="center">
   <button class="button" id="begin-update-button"><i class="fa-solid fa-pen"></i>Update post</button>
 
@@ -40,6 +42,7 @@
 
     <button class="button" id="delete-button"><i class="fa-solid fa-trash"></i>Delete post</button>
 </div>
+{{!-- {{/if}} --}}
 
 {{log comments}}
 {{#if comments.length}}

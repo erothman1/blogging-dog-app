@@ -3,7 +3,7 @@ const { Comment, User, Post } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 //Post request to create a comment (post content, username, and date created)
-router.post('/', withAuth, async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
     try {
         const user = await User.findOne({
             where: {
@@ -14,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
 
         const post = await Post.findOne({
             where: {
-                user_id: userId
+                id: req.params.id
             }
         })
         const postId = post.id
