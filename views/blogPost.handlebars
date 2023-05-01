@@ -3,7 +3,7 @@
 {{!-- have option to leave a comment --}}
 {{log this}}
 
-<div class="card" id="post">
+<div class="card" id="post" data-postid="{{postId}}">
   <div class="card-content">
     <div class="media-content">
       <p class="title is-4">{{title}}</p>
@@ -34,7 +34,9 @@
 </div>
 
 <div class="center">
-  <button class="button" id="update-button"><i class="fa-solid fa-pen"></i>Update post</button>
+  <button class="button" id="begin-update-button"><i class="fa-solid fa-pen"></i>Update post</button>
+
+  <button class="button" id="update-button" style="display:none"><i class="fa-solid fa-pen"></i>Update post</button>
 
     <button class="button" id="delete-button"><i class="fa-solid fa-trash"></i>Delete post</button>
 </div>

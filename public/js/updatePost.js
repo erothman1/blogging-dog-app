@@ -1,11 +1,14 @@
+const beginUpdateButton = document.getElementById("begin-update-button")
 const updateButton = document.getElementById("update-button")
+const post = document.getElementById("post")
 
-updateButton.addEventListener("click", () => {
+beginUpdateButton.addEventListener("click", () => {
     const updateForm = document.getElementById("updateForm")
-    const post = document.getElementById("post")
 
     updateForm.setAttribute("style", "display:block")
     post.setAttribute("style", "display:none")
+    beginUpdateButton.setAttribute("style", "display:none")
+    updateButton.setAttribute("style", "display:block")
 })
 
 const updatePostHandler = async (event) => {
@@ -13,6 +16,7 @@ const updatePostHandler = async (event) => {
 
     const title = document.getElementById("title-input").value.trim()
     const content = document.getElementById("content-input").value.trim()
+    const postId = post.getAttribute("data-postid")
 
     if (title && content) {
         const response = await fetch(`/api/blog/${parseInt(postId)}`, {
