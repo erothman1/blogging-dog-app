@@ -40,7 +40,7 @@
 
   <button class="button" id="update-button" style="display:none"><i class="fa-solid fa-pen"></i>Update post</button>
 
-    <button class="button" id="delete-button"><i class="fa-solid fa-trash"></i>Delete post</button>
+  <button class="button" id="delete-button"><i class="fa-solid fa-trash"></i>Delete post</button>
 </div>
 {{/compareID}}
 
@@ -51,14 +51,14 @@
 <div id="comments-container">
 
   <div class="card">
-  <div class="card-content">
-    <div class="media-content">
-      <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}
-      </p>
+    <div class="card-content">
+      <div class="media-content">
+        <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}   
+        <i class="fa-solid fa-trash" data-commentid="{{comments.id}}"></i></p>
+      </div>
     </div>
+    <div class="content">{{this.content}}</div>
   </div>
-  <div class="content">{{this.content}}</div>
-</div>
 </div>
 
 </div>
@@ -75,18 +75,18 @@
 
 <div id="commentBlock" style="display:none">
   <div class="container is-one-third" id="commentForm" style="padding:2rem;">
-  <form>
-    <div class="field">
-      <label class="label">Comment</label>
-      <div class="control has-icons-left has-icons-right">
-        <input class="input is-normal" id="comment-input" type="text">
+    <form>
+      <div class="field">
+        <label class="label">Comment</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-normal" id="comment-input" type="text">
+        </div>
       </div>
-    </div>
-  </form>
-</div>
-<div class="center">
-  <button class="button" id="create-button"><i class="fa-solid fa-circle-plus"></i></button>
-</div>
+    </form>
+  </div>
+  <div class="center">
+    <button class="button" id="create-button"><i class="fa-solid fa-circle-plus"></i></button>
+  </div>
 </div>
 
 <script src="/js/addComment.js"></script>
