@@ -9,7 +9,7 @@ const deletePostHandler = async () => {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert('Failed to delete ppost');
+        alert('Failed to delete post');
     }
 }
 
