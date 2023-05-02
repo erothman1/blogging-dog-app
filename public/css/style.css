@@ -60,3 +60,8 @@ nav button:hover {
     padding: 1.5rem;
     font-size: 20px;
 }
+
+#comment-card {
+    display:flex;
+    flex-direction: row;
+}

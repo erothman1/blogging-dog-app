@@ -51,11 +51,15 @@
 <div id="comments-container">
 
   <div class="card">
-    <div class="card-content">
+    <div class="card-content" id="comment-card">
       <div class="media-content">
-        <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}   
-        <i class="fa-solid fa-trash" data-commentid="{{comments.id}}"></i></p>
+        <p class="subtitle is-6" style="font-size: 17px">Posted by @{{this.user.username}} {{formatDate this.createdAt}}</p>
       </div>
+
+      {{#compareID userId this.user_id}}
+      <button class="button" id="delete-comment-button" style="padding: .5rem; margin: 0;" data-commentid="{{this.id}}"><i class="fa-solid fa-trash"></i></button>
+      {{/compareID}}
+
     </div>
     <div class="content">{{this.content}}</div>
   </div>
@@ -92,3 +96,4 @@
 <script src="/js/addComment.js"></script>
 <script src="/js/updatePost.js"></script>
 <script src="/js/deletePost.js"></script>
+<script src="/js/deleteComment.js"></script>
