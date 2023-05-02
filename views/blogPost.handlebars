@@ -57,9 +57,9 @@
       </div>
 
 {{!-- need to edit this to make delete button only show if logged in user made it --}}
-      {{#compareID userId this.user_id}}
+      {{!-- {{#compareID userId this.user_id}}
       <button class="button" id="delete-comment-button" style="padding: .5rem; margin: 0;" data-commentid="{{this.id}}"><i class="fa-solid fa-trash"></i></button>
-      {{/compareID}}
+      {{/compareID}} --}}
 
     </div>
     <div class="content">{{this.content}}</div>
